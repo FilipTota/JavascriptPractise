@@ -140,7 +140,7 @@ console.log("Max number in array: ", maxNum([2, 5, 10, 4, -1, 4]));
 
 
 // 14. Print the first 10 Fibonacci numbers without recursion
-function Fibonacci (num) {
+function fibonacci (num) {
     let result = [0];
     let b = 0, a = 1, temp;
     while (num >= 0) {
@@ -152,7 +152,7 @@ function Fibonacci (num) {
     }
     return result;
 }
-console.log("First 10 Fibonacci numbers: ", Fibonacci(8));
+console.log("First 10 Fibonacci numbers: ", fibonacci(8));
 
 
 // 15. Create a function that will find the n-th Fibonacci number using recursion
