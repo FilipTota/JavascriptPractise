@@ -243,3 +243,76 @@ function rotateRight(arr) {
     return arr;
 }
 console.log("Array rotated to the right: ", rotateRight([5, 10, 4, 20, 2]));
+
+
+// 22. Reverse an array
+function reversedArr(arr) {
+    let newArr = [];
+    for (let i = arr.length - 1; i >= 0; i--) {
+        newArr.push(arr[i]);
+    }
+    return newArr;
+}
+console.log("22. Reversed array: ", reversedArr([3, 6, 1, 10, 5]));
+
+// 23. Reverse a string
+function reversedString (string) {
+    let newString = "";
+    for (let i = string.length - 1; i >= 0; i--) {
+        newString += string[i];
+    }
+    return newString;
+}
+console.log("23. Reversed string: ", reversedString("Working in Javascript"));
+// Same task with different solution
+function reversedString2 (string) {
+    let newString = string.split("").reverse("").join("");
+    return newString;
+}
+console.log("23. Reversed string with different code solution: ", reversedString2("Javascript practice"));
+
+
+// 24. Create a function that will merge two arrays and return the result as a new array
+function arrMerge (arr1, arr2) {
+    let newArr = arr1.concat(arr2);
+    return newArr;
+}
+console.log("24. Merging to arrays into one: ", arrMerge([1, 2], [3, 4]));
+
+
+// 25. Create function that will receive two arrays of numbers as arguments and return an array composed of
+// all the numbers that are either in the first array or second array but not in both
+function composedArr(arr1, arr2) {
+    let firstArr = arr1.filter(num => {
+        if (!arr2.includes(num)) {
+            return num;
+        }
+    });
+    let secondArr = arr2.filter(num => {
+        if (!arr1.includes(num)) {
+            return num;
+        }
+    });
+    return firstArr.concat(secondArr);
+}
+console.log("25. Array composed of all the numbers that are either in the first array or second array but not in both", composedArr([1, 4, 3, 6, 7, 9], [1, 5, 3, 8, 9]));
+
+
+// 26. Create a function that will receive two arrays and will return an array with elements that are in the first array but not in the second
+function arrElements (arr1, arr2) {
+    let arr = arr1.filter(num => {
+        if (!arr2.includes(num)) {
+            return num;
+        }
+    });
+    return arr;
+}
+console.log("27. Array with elements that are in the first array but not in the second: ", arrElements([3, 6, 10, 1, 5, 7, 9], [1, 2, 4, 13, 7, 8]));
+
+
+// 27. Create a function that will receive an array of numbers as argument and will return a new array with distinct elements
+function distinct (arr) {
+    return [... new Set(arr)];  
+}
+console.log("Array of distinct elements: ", distinct([1, 3, 4, 10, 3, 5, 1, 4, 8]));
+
