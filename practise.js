@@ -316,3 +316,69 @@ function distinct (arr) {
 }
 console.log("Array of distinct elements: ", distinct([1, 3, 4, 10, 3, 5, 1, 4, 8]));
 
+
+// 28. Calculate the sum of first 100 prime numbers
+function sumOfPrime () {
+    let sum = 0;
+    for (let i = 0; i <= 100; i++) {
+        if (isPrime(i)) {
+            sum += i;   
+        }
+    }
+    return sum;
+}
+console.log("28. Sum of first 100 prime numbers = ", sumOfPrime());
+
+
+// 30. Create a function that will add two positive numbers of indefinite size. The numbers are received as string and
+// the result should be also provided as string
+function addIndefinite(num1, num2) {
+    let sum = 0;
+    let first = parseInt(num1);
+    let second = parseInt(num2);
+    
+    sum = first + second;
+    let result = sum.toString();
+    return result;
+}
+console.log("30. Added numbers in string: ", addIndefinite("1456", "3251"));
+
+
+// 31. Create a function that will return the number of words in a text
+function wordsCount(string) {
+    let counter = 0;
+    let arr = string.split(" ");
+
+    for (const elem of arr) {
+        counter++;
+    }
+    return counter;
+}
+console.log("Number of words in text: ", wordsCount("Today I am learning basic Javascript"));
+
+
+// 32. Create a function that will capitalize the first letter of each word in a text
+function upperCase(string) {
+    let arr = string.toLowerCase().split(' ');
+    let word = [];
+    for (const elem of arr) {
+        let upperCase = elem[0].toUpperCase() + elem.substring(1)
+        word.push(upperCase);
+    }
+    return word.join(" ");
+}
+console.log("Capitalizing a first letter of every word in a string: ", upperCase("coding in Javascript"));
+
+
+// 33. Calculate the sum of numbers received in a comma delimited string
+function sumOfNumbers(string) {
+    let arr = string.split(",")
+    let sum = 0;
+    let newArr = [];
+    for (let i = 0; i < arr.length; i++) {
+        newArr.push(parseInt(arr[i]));
+        sum += newArr[i];
+    }
+    return sum;
+}
+console.log("Sum of numbers: ", sumOfNumbers("1, 2, 3, 4, 5"));
