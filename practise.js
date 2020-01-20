@@ -354,7 +354,7 @@ function wordsCount(string) {
     }
     return counter;
 }
-console.log("Number of words in text: ", wordsCount("Today I am learning basic Javascript"));
+console.log("31. Number of words in text: ", wordsCount("Today I am learning basic Javascript"));
 
 
 // 32. Create a function that will capitalize the first letter of each word in a text
@@ -367,7 +367,7 @@ function upperCase(string) {
     }
     return word.join(" ");
 }
-console.log("Capitalizing a first letter of every word in a string: ", upperCase("coding in Javascript"));
+console.log("32. Capitalizing a first letter of every word in a string: ", upperCase("coding in Javascript"));
 
 
 // 33. Calculate the sum of numbers received in a comma delimited string
@@ -381,4 +381,67 @@ function sumOfNumbers(string) {
     }
     return sum;
 }
-console.log("Sum of numbers: ", sumOfNumbers("1, 2, 3, 4, 5"));
+console.log("33. Sum of numbers: ", sumOfNumbers("1, 2, 3, 4, 5"));
+
+
+// 34. Create a function that returns an array with words inside a text
+function textArr(text) {
+    let arr = text.split(" ");
+    return arr;
+}
+console.log("34. Array of text ", textArr("Coding in Javascript"));
+
+
+// 35. Create a function to convert a CSV text to a "bi-dimensional" array
+let text = "John, Smith, 34\n" +
+           "Michael, Tiger, 25\n" + 
+           "William, Braum, 30";
+
+function csvToArr(text) {
+    let arr1 = text.split("\n");
+
+    for (let i = 0; i < arr1.length; i++) {
+        let arr2 = arr1[i].split(",");
+        arr1[i] = arr2;
+    }
+    return arr1;
+}
+console.log("35. CSV text converted to array: ", csvToArr(text));
+
+
+// 36. Create a function that converts a string to an array of characters
+function charArr(text) {
+    // to remove space between words
+    let arr = text.split("");
+
+    // to create final array
+    let finalArr = arr.filter(el => {
+        return el !== ' ';
+    })
+    return finalArr;
+}
+console.log("36. String in array of characters: ", charArr("Coding in Javascript"));
+
+
+// 37. Create a function that will convert a string in an array containing ASCII codes of each character
+function stringToAscii(text) {
+    let arr = [];
+    for (let i = 0; i < text.length; i++) {
+        let eachChar = text.charCodeAt(i);
+        arr.push(eachChar);
+    }
+    return arr;
+}
+console.log("37. String in an array containing ASCII codes of each character ", stringToAscii("Coding in Javascript"));
+
+
+// 38. Create a function that will converte an array containing ASCII codes in a string
+function asciiToString(arr) {
+    let newArr = [];
+    for (let el of arr) {
+        let newString = String.fromCharCode(el);
+        newArr.push(newString);
+    }
+    return newArr.join("");
+}
+console.log("38. Converting array of ASCII codes in a string: ", asciiToString([72, 101, 108, 108, 111]));
