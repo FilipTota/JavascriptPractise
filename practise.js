@@ -445,3 +445,142 @@ function asciiToString(arr) {
     return newArr.join("");
 }
 console.log("38. Converting array of ASCII codes in a string: ", asciiToString([72, 101, 108, 108, 111]));
+
+
+// 39. Implement Caesar cypher
+function caesarC(text) {
+    let sentence = "";
+    for (let i = 0; i < text.length; i++) {
+        let asciiNum = text[i].charCodeAt();
+        if (asciiNum >= 65 && asciiNum <= 77) {
+            sentence += String.fromCharCode(asciiNum  + 13);
+        }
+        else if (asciiNum >= 78 && asciiNum <= 90) {
+            sentence += String.fromCharCode(asciiNum - 13);
+        }
+        else {
+            sentence += text[i];
+        }
+    }
+    return sentence;
+}
+console.log("39. Caesar cypher: ", caesarC("CODING IN JAVASCRIPT"));
+
+
+// 40. Implement the bubble sort algorithm for an array of numbers
+function bubbleSort(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr.length; j++) {
+            if (arr[j] > arr[j + 1]) {
+                let temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
+    return arr;
+}
+console.log("40. Bubble sort algorithm: ", bubbleSort([3, 2, 4, 1, 5]));
+
+// 41. Create a function to calculate the distance between two points defined by their x, y coordinates
+function distance(first, second) {
+    let dx = Math.abs(first[0] - second[0]);
+    let dy = Math.abs(first[1] - second[1]);
+    return (Math.sqrt(Math.pow(dx, 2) + Math.pow(dy, 2)));
+}
+console.log("41. Distance between two points by their coordinates (x, y): ", distance([15, 20], [35, 5]));
+
+
+// 42. Create a funcion that will return Boolean value indicating if two circles defined by center coordinates and radius are intersecting
+function twoCircles(x1, x2, y1, y2, r1, r2) {
+    let t = circle(x1, x2, y1, y2, r1, r2);
+    if (t === 1) {
+        return false;
+    }
+    else if (t < 0) {
+        return false 
+    }
+    else {
+        return true;
+    }
+}
+function circle(x1, x2, y1, y2, r1, r2) {
+    let dist = (x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2);
+    let radiusSum = (r1 + r2) * (r1 + r2);
+
+    if (dist === radiusSum) {
+        return 1
+    }
+    else if (dist > radiusSum) {
+        return -1;
+    }
+    else {
+        return 0;
+    } 
+}
+console.log("42. Boolean value indicating if two circles defined by center coordinates and radius are intersecting: ", twoCircles(5, -1, 4, -2, 3, 6));
+
+
+//  43. Create a function that will receive a bi-dimensional array as argument and a number and will extract as a unidimensional array the column 
+//  specified by the number 
+let biArr = [["John", 25], ["Charlie", 30], ["Martha", 23], ["Michael", 40], ["Morty", 65]];
+
+function extract(biArr, column) {
+    let newArr = [];
+
+    for (let i = 0; i < biArr.length; i++) {
+        newArr.push(biArr[i][column]);
+    }
+    return newArr;
+}
+console.log("43. Bi-dimensional array to unidimensional array: ", extract(biArr, 1));
+
+
+// 44. Create a function that will convert a string containing a binary number into a number
+function numConvert(text) {
+    let biNum = parseInt(text, 2);
+    return biNum;
+}
+console.log("44. Converting string of binary number into a decimal number: ", numConvert("100011"));
+
+
+// 45. Create a function to calculate the sum of all the numbers in a jagged array (contains numbers or other arrays on an unlimited number of levels)
+function sumJagged(arr) {
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr[i].length; j++) {
+            sum += arr[i][j];
+        }
+    }
+    return sum;
+}
+console.log("45. Sum of numbers in a jagged array: ", sumJagged([[52, 32], [42, 13, 44, 27], [34, 87, 12]]));
+
+
+// 46. Find the maximum number in a jagged array of numbers of array of numbers
+function maxNum(arr) {
+    let max = arr[0][0];
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < arr[i].length; j++) {
+            if (max < arr[i][j + 1]) {
+                max = arr[i][j + 1]
+            }
+        }
+    }
+    return max;
+}
+console.log("46. Maximum number in jagged array: ", maxNum([[52, 32], [42, 13, 44, 27], [34, 87, 12]]));
+
+
+// 47. Deep copy a jagged array with numbers or other arrays in a new array
+function jaggedArr(arr) {
+    let arr2 = [];
+    for (let el of arr) {
+        if (Array.isArray(el)) {
+            el = jaggedArr(el)
+        }
+        arr2.push(el);
+    }
+    return arr2;
+}
+console.log("47. Deep copy of jagged array: ", jaggedArr([[43, 32, 3], ["Hello",["World"]]]));
