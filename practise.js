@@ -584,3 +584,61 @@ function jaggedArr(arr) {
     return arr2;
 }
 console.log("47. Deep copy of jagged array: ", jaggedArr([[43, 32, 3], ["Hello",["World"]]]));
+
+
+// 48. Create a function to return the longest word in a string
+function longestWord(text) {    
+    let arr = text.split(" ");
+    let sortByLength = arr.sort((a, b) => {
+        return b.length - a.length;
+    });
+    let word = sortByLength[0];
+    return word;
+}
+console.log("48. Longest word in a string: ", longestWord("Coding in Javascript"));
+
+
+// 49. Shuffle an array of strings
+function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+        let j = Math.floor(Math.random() * (i + 1));
+        let temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+    return arr;
+}
+console.log("49. Shuffled array of strings: ", shuffle(["Hello", "World", "I'm", "learning", "Javascript"]));
+
+
+// 50. Create a function that will receive n as argument and return an array of n random numbers from 1 to n. The numbers should be unique inside the array.
+function randomNum(n) {
+    let arr = [];
+    for (let i = 1; i <= n; i++) {
+        arr.push(i);
+        // function above
+        shuffle(arr);
+    }
+    return arr;
+}
+console.log("50. Random numbers from 1 to n inside the array: ", randomNum(10));
+
+
+// 51. Find the frequency of letters inside a string. Return the result as an array of arrays. Each subarray has 2 elements: letter and numbers of occurances
+function getFrequency(text) {
+    let arr = [0];
+    for (let letter of text) {
+        countLetters(arr, letter);
+    }
+    return arr;
+}
+
+function countLetters(arr, letter) {
+    for (let el of arr) {
+       if(el.letter === letter) {
+           el.frequency++;
+       }
+    }
+    arr.push({letter: letter, frequency: 1})
+}
+console.log("Frequency of letters inside a string: ", getFrequency("Coding in Javascript"));
